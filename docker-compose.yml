@@ -1,0 +1,15 @@
+rails:
+  build: .
+  environment:
+    DATABASE_URL: postgresql://postgres@postgres/arma-stats
+    TEST_DATABASE_URL: postgresql://postgres@postgres/arma-stats-tests
+  links:
+    - postgres
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/arma-stats
+postgres:
+  image: postgres:9.4
+  ports:
+    - "5432:5432"
