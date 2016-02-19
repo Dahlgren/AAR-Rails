@@ -16,18 +16,27 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @event = @mission.events.new(event_params)
+    if params[:events] && params[:events].kind_of?(Array)
+      @events = params[:events].map { |event| create_event(ActionController::Parameters.new({
+        event: event
+      })) }
+      @events = @events.select { |event| event.save }
 
-    if @event.save
-      render json: @event, status: :created, location: [@mission, @event]
+      render json: @events, status: :created
     else
-      render json: @event.errors, status: :unprocessable_entity
+      @event = create_event(params)
+
+      if @event.save
+        render json: @event, status: :created, location: [@mission, @event]
+      else
+        render json: @event.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /events/1
   def update
-    if @event.update(event_params)
+    if @event.update(event_params(params))
       render json: @event
     else
       render json: @event.errors, status: :unprocessable_entity
@@ -49,8 +58,14 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def create_event(params)
+      event = Event.new(event_params(params))
+      event.mission = @mission
+      event
+    end
+
     # Only allow a trusted parameter "white list" through.
-    def event_params
+    def event_params(params)
       params.require(:event).permit(:type, :data)
     end
 end

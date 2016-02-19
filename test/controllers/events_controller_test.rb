@@ -21,6 +21,19 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response 201
   end
 
+  test "should create events" do
+    assert_difference('Event.count', 2) do
+      post mission_events_url(@mission), params: {
+        events: [
+          { data: @event.data, type: @event.type },
+          { data: @event.data, type: @event.type },
+        ]
+      }
+    end
+
+    assert_response 201
+  end
+
   test "should show event" do
     get mission_event_url(@mission, @event)
     assert_response :success
