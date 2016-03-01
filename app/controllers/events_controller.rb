@@ -27,7 +27,7 @@ class EventsController < ApplicationController
       @event = create_event(params)
 
       if @event.save
-        render json: @event, status: :created, location: [@mission, @event]
+        render json: @event, status: :created
       else
         render json: @event.errors, status: :unprocessable_entity
       end
@@ -59,13 +59,14 @@ class EventsController < ApplicationController
     end
 
     def create_event(params)
-      event = Event.new(event_params(params))
+      klass = Object.const_get "Events::#{params[:event][:type]}"
+      event = klass.new(event_params(params))
       event.mission = @mission
       event
     end
 
     # Only allow a trusted parameter "white list" through.
     def event_params(params)
-      params.require(:event).permit(:type, :data)
+      params.require(:event).permit(player: [:name])
     end
 end

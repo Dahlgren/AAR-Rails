@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @event = events(:one)
+    @event = events(:unit_created)
     @mission = missions(:one)
   end
 
@@ -14,8 +14,8 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test "should create event" do
     assert_difference('Event.count') do
       post mission_events_url(@mission), params: {
-        event: { data: @event.data, type: @event.type }
-      }
+        event: { player: {name: "Player"}, type: "PlayerConnected" }
+      }.to_json, headers: {CONTENT_TYPE: 'application/json'}
     end
 
     assert_response 201
@@ -25,10 +25,10 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Event.count', 2) do
       post mission_events_url(@mission), params: {
         events: [
-          { data: @event.data, type: @event.type },
-          { data: @event.data, type: @event.type },
+          { player: {name: "Player"}, type: "PlayerConnected" },
+          { player: {name: "Player"}, type: "PlayerDisconnected" },
         ]
-      }
+      }.to_json, headers: {CONTENT_TYPE: 'application/json'}
     end
 
     assert_response 201
@@ -41,8 +41,8 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update event" do
     patch mission_event_url(@mission, @event), params: {
-      event: { data: @event.data, type: @event.type }
-    }
+      event: { player: {name: "Player"} }
+    }.to_json, headers: {CONTENT_TYPE: 'application/json'}
     assert_response 200
   end
 

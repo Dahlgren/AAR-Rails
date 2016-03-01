@@ -1,11 +1,41 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  mission: 
-  type: 
-  data: 
+player_connected:
+  mission: one
+  type: Events::PlayerConnected
+  data:
+    player:
+      name: Player
 
-two:
-  mission: 
-  type: 
-  data: 
+player_disonnected:
+  mission: one
+  type: Events::PlayerDisconnected
+  data:
+    player:
+      name: Player
+
+unit_created:
+  mission: one
+  type: Events::UnitCreated
+  data:
+    player:
+      name: Player
+    unit:
+      name: Test
+      position:
+        x: 1
+        y: 2
+        z: 3
+
+unit_position:
+  mission: one
+  type: Events::UnitPosition
+  data:
+    player:
+      name: Player
+    unit:
+      name: Test
+      position:
+        x: 1
+        y: 2
+        z: 3
