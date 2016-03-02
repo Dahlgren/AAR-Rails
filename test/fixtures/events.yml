@@ -6,6 +6,7 @@ player_connected:
   data:
     player:
       name: Player
+      uid: 1
 
 player_disonnected:
   mission: one
@@ -13,6 +14,7 @@ player_disonnected:
   data:
     player:
       name: Player
+      uid: 1
 
 unit_created:
   mission: one
@@ -20,6 +22,7 @@ unit_created:
   data:
     player:
       name: Player
+      uid: 2
     unit:
       name: Test
       position:
@@ -33,6 +36,7 @@ unit_position:
   data:
     player:
       name: Player
+      uid: nil
     unit:
       name: Test
       position:
