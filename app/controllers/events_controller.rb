@@ -67,6 +67,9 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params(params)
-      params.require(:event).permit(player: [:name])
+      params.require(:event).permit(
+        player: [:name, :uid],
+        unit: [:id, :name, position: [:x, :y, :z]],
+      )
     end
 end
