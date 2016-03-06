@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table :events do |t|
       t.references :mission, foreign_key: true
       t.string :type
+      t.datetime :timestamp
       t.jsonb :data, null: false, default: '{}'
 
       t.timestamps

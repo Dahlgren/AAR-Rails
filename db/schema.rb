@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160218233712) do
   create_table "events", force: :cascade do |t|
     t.integer  "mission_id"
     t.string   "type"
+    t.datetime "timestamp"
     t.jsonb    "data",       default: {}, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
