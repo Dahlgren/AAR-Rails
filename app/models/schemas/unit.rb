@@ -3,7 +3,8 @@ class Schemas::Unit
 
   attribute :id, as: :string
   attribute :name, as: :string
+  attribute :side, as: :string
   embeds_one :position, class_name: 'Schemas::Position'
 
-  validates_presence_of :id, :name, :position
+  validates_presence_of :id, :name, :position, :side
 end

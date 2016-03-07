@@ -70,7 +70,7 @@ class EventsController < ApplicationController
       params.require(:event).permit(
         :timestamp,
         player: [:name, :uid],
-        unit: [:id, :name, position: [:x, :y, :z]],
+        unit: [:id, :name, :side, position: [:x, :y, :z]],
       )
     end
 end
