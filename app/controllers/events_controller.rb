@@ -4,7 +4,10 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = @mission.events
+    @events = @mission.events.order(timestamp: :asc)
+
+    @events = @events.limit(params[:limit]) if params[:limit]
+    @events = @events.offset(params[:offset]) if params[:offset]
 
     render json: @events
   end
