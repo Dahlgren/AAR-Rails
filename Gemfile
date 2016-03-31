@@ -35,3 +35,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Validate embedded JSON data
 gem 'ar_doc_store'
+
+# Handle JSON Output
+gem 'active_model_serializers', '0.10.0.rc4'
