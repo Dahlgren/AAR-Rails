@@ -30,6 +30,11 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # New Relic logging
+  gem 'newrelic_rpm', '3.15.1.316'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
