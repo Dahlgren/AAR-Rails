@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @event = events(:unit_created)
+    @event = events(:player_connected)
     @mission = missions(:one)
   end
 
@@ -41,7 +41,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update event" do
     patch mission_event_url(@mission, @event), params: {
-      event: { player: {name: "Player"} }
+      event: { player: {name: "Player 2", uid: 2} }
     }.to_json, headers: {CONTENT_TYPE: 'application/json'}
     assert_response 200
   end
