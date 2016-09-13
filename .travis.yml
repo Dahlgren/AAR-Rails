@@ -1,0 +1,24 @@
+language: ruby
+sudo: false
+
+services:
+  - postgresql
+
+addons:
+  postgresql: "9.4"
+
+env:
+- DATABASE_URL=postgres://localhost/anrop-aar
+
+cache:
+  - bundler
+
+rvm:
+  - 2.3.0
+
+before_script:
+  - bundler exec rails db:create
+  - bundler exec rails db:migrate
+
+script:
+  - bundler exec rails test
