@@ -1,4 +1,5 @@
 class MissionsController < ApplicationController
+  before_action :restrict_access, only: [:create, :update, :destroy]
   before_action :set_mission, only: [:show, :update, :destroy]
 
   # GET /missions
