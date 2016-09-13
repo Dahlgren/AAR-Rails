@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218233712) do
+ActiveRecord::Schema.define(version: 20160904204631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 20160218233712) do
     t.jsonb    "data",       default: {}, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["mission_id", "timestamp"], name: "index_events_on_mission_id_and_timestamp", using: :btree
     t.index ["mission_id"], name: "index_events_on_mission_id", using: :btree
+    t.index ["timestamp"], name: "index_events_on_timestamp", using: :btree
   end
 
   create_table "missions", force: :cascade do |t|
