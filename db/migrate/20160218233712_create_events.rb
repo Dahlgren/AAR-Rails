@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.references :mission, foreign_key: true
       t.string :type
       t.datetime :timestamp
-      t.jsonb :data, null: false, default: '{}'
+      t.jsonb :data, null: false, default: {}
 
       t.timestamps
     end
