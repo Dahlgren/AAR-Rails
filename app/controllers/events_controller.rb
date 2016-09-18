@@ -21,10 +21,12 @@ class EventsController < ApplicationController
   # POST /events
   def create
     if params[:events] && params[:events].kind_of?(Array)
-      @events = params[:events].map { |event| create_event(ActionController::Parameters.new({
-        event: event
-      })) }
-      @events = @events.select { |event| event.save }
+      Event.transaction do
+        @events = params[:events].map { |event| create_event(ActionController::Parameters.new({
+          event: event
+        })) }
+        @events = @events.select { |event| event.save }
+      end
 
       render json: @events, status: :created
     else
