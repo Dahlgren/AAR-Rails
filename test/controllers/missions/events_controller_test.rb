@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EventsControllerTest < ActionDispatch::IntegrationTest
+class Missions::EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @event = events(:player_connected)
     @mission = missions(:one)

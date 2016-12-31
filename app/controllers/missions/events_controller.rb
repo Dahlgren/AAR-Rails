@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Missions::EventsController < ApplicationController
   before_action :restrict_access, only: [:create, :update, :destroy]
   before_action :set_mission
   before_action :set_event, only: [:show, :update, :destroy]
