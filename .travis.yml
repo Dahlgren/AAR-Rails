@@ -14,7 +14,7 @@ cache:
   - bundler
 
 rvm:
-  - 2.3.0
+  - 2.3.4
 
 before_script:
   - bundler exec rails db:create
