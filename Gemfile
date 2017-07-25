@@ -26,6 +26,8 @@ group :development, :test do
 end
 
 group :development do
+  # Derailed allows for benchmarking memory usage by Ruby per gem
+  gem 'derailed'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
