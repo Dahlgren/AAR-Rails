@@ -43,7 +43,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    ar_doc_store (1.0.1)
+    ar_doc_store (1.0.2)
       activerecord
       pg (~> 0.17)
     arel (7.1.4)
