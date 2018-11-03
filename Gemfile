@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0', '< 5.2'
+gem 'rails', '5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -16,6 +16,9 @@ gem 'redis', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -39,7 +42,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Validate embedded JSON data
-gem 'ar_doc_store', '1.0.2'
+gem 'ar_doc_store', '1.0.5'
 
 # Handle JSON Output
 gem 'active_model_serializers'
