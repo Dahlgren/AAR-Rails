@@ -75,6 +75,7 @@ class EventsController < ApplicationController
     def event_params(params)
       params.require(:event).permit(
         :timestamp,
+        marker: [:id, :alpha, :brush, :color, :shape, :text, :type, position: [:dir, :x, :y, :z], size: [:height, :width]],
         player: [:name, :uid],
         projectile: [:id, :side, :simulation, position: [:dir, :x, :y, :z]],
         unit: [:id, :life_state, :name, :side, :vehicle_id, position: [:dir, :x, :y, :z]],
