@@ -17,8 +17,8 @@ rvm:
   - 2.3.4
 
 before_script:
-  - bundler exec rails db:create
-  - bundler exec rails db:migrate
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
 
 script:
-  - bundler exec rails test
+  - bundle exec rails test
