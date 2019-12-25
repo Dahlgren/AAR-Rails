@@ -1,8 +1,8 @@
 rails:
   build: .
   environment:
-    DATABASE_URL: postgresql://postgres@postgres/arma-stats
-    TEST_DATABASE_URL: postgresql://postgres@postgres/arma-stats-tests
+    DATABASE_URL: postgresql://postgres@postgres/aar-rails
+    TEST_DATABASE_URL: postgresql://postgres@postgres/aar-rails-tests
   links:
     - postgres
   ports:

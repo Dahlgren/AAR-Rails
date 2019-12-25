@@ -14,11 +14,10 @@ cache:
   - bundler
 
 rvm:
-  - 2.3.4
+  - 2.6.5
 
 before_script:
-  - bundle exec rails db:create
-  - bundle exec rails db:migrate
+  - bundle exec rails db:setup
 
 script:
   - bundle exec rails test
